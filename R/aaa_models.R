@@ -184,6 +184,7 @@ stop_missing_engine <- function(cls) {
 }
 
 check_mode_for_new_engine <- function(cls, eng, mode) {
+  all_modes <- c("classification", "regression", "censored regression")
   all_modes <- get_from_env(paste0(cls, "_modes"))
   if (!(mode %in% all_modes)) {
     rlang::abort(paste0("'", mode, "' is not a known mode for model `", cls, "()`."))
